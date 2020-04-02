@@ -1,0 +1,45 @@
+apply plugin: 'com.android.application'
+
+repositories {
+    flatDir {
+        dirs 'libs'   // aar目录
+    }
+}
+
+android {
+    compileSdkVersion 28
+    signingConfigs {
+    }
+    defaultConfig {
+        applicationId "com.upyun.verification"
+        minSdkVersion 19
+        targetSdkVersion 26
+        versionCode 1
+        versionName "1.0"
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        manifestPlaceholders = [
+                // 你的应用 Appkey
+                UPYUN_APPKEY : "5195ff1bded312cfe2ac46aa",
+                //你的应用渠道
+                UPYUN_CHANNEL: "default_developer",
+        ]
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+        debug {
+        }
+    }
+}
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    implementation 'androidx.appcompat:appcompat:1.1.0'
+    testImplementation 'junit:junit:4.12'
+    androidTestImplementation 'androidx.test.ext:junit:1.1.1'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
+    implementation 'androidx.appcompat:appcompat:1.1.0'
+    implementation(name: 'verification-release', ext: 'aar')
+}

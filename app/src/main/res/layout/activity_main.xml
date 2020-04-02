@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center_horizontal"
+        android:paddingTop="50dp"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/tv_log"
+            android:layout_width="240dp"
+            android:layout_height="100dp"
+            android:text="" />
+
+        <Button
+            android:id="@+id/btn_pre_login"
+            android:layout_width="240dp"
+            android:layout_height="48dp"
+            android:layout_marginTop="5dp"
+            android:text="预取号" />
+
+        <Button
+            android:id="@+id/btn_del_pre_login_cache"
+            android:layout_width="240dp"
+            android:layout_height="48dp"
+            android:layout_marginTop="5dp"
+            android:text="删除预取号结果缓存" />
+
+        <CheckBox
+            android:id="@+id/cb_auto_finish"
+            android:layout_width="240dp"
+            android:layout_height="48dp"
+            android:layout_marginTop="5dp"
+            android:checked="true"
+            android:text="授权后是否自动关闭授权页" />
+
+        <CheckBox
+            android:id="@+id/cb_dialog_mode"
+            android:layout_width="240dp"
+            android:layout_height="48dp"
+            android:layout_marginTop="5dp"
+            android:checked="false"
+            android:text="是否是窗口模式打开授权页" />
+
+        <Button
+            android:id="@+id/btn_login"
+            android:layout_width="240dp"
+            android:layout_height="48dp"
+            android:layout_marginTop="5dp"
+            android:text="一键登录" />
+    </LinearLayout>
+
+</ScrollView>
