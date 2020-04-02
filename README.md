@@ -31,8 +31,8 @@
         ]
 	</code></pre>
  - 包名签名设置
- 	包名需要与控制后台申请包名一致，签名通过[签名工具](https://github.com/upyun/Android-QuickLogin/apk/AppSignGet.apk)获取后上传控制后台。
- - Demo APK [下载演示](https://github.com/upyun/Android-QuickLogin/apk/loginDemo.apk)。
+ 	包名需要与控制后台申请包名一致，签名通过[签名工具](https://github.com/upyun/Android-QuickLogin/blob/master/apk/AppSignGet.apk)获取后上传控制后台。
+ - Demo APK [下载演示](https://github.com/upyun/Android-QuickLogin/blob/master/apk/loginDemo.apk)。
 
 
 <h2 id="sdk">SDK接口说明</h2>
