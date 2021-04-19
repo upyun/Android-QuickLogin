@@ -30,10 +30,58 @@
                 UPYUN_CHANNEL: "default_developer",
         ]
 	</code></pre>
+	
+
+	<p>在应用 module Androidmanifest 中配置(aar 已配置 networkSecurityConfig ,应用中未修改可忽略)</p>
+<pre><code>application标签中添加
+android:networkSecurityConfig=&quot;@xml/network_security_config&quot;
+&lt;activity android:name=&quot;cn.jiguang.demo.jverification.MainActivity&quot; /&gt;
+</code></pre>
+
+	<p>在res目录下新建xml目录，并新建 network_security_config.xml(aar 已配置 network_security_config ,应用中未修改可忽略)</p>
+<pre><code class="java">&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;
+&lt;network-security-config&gt;
+    &lt;base-config cleartextTrafficPermitted=&quot;true&quot;&gt;
+        &lt;trust-anchors&gt;
+            &lt;certificates src=&quot;system&quot; /&gt;
+        &lt;/trust-anchors&gt;
+    &lt;/base-config&gt;
+&lt;/network-security-config&gt;
+</code></pre>
  - 包名签名设置
  	包名需要与控制后台申请包名一致，签名通过[签名工具](https://github.com/upyun/Android-QuickLogin/blob/master/apk/AppSignGet.apk)获取后上传控制后台。
  - Demo APK [下载演示](https://github.com/upyun/Android-QuickLogin/blob/master/apk/loginDemo.apk)。
 
+<h3 id="_7">混淆配置</h3>
+<ul>
+<li>请下载 4.x 及以上版本的 proguard.jar， 并替换你 Android SDK "tools\proguard\lib\proguard.jar"</li>
+<li>请在工程的混淆文件中添加以下配置：</li>
+</ul>
+<pre><code>        -dontoptimize
+        -dontpreverify
+
+        -dontwarn cn.jpush.**
+        -keep class cn.jpush.** { *; }
+        -dontwarn cn.jiguang.**
+        -keep class cn.jiguang.** { *; }
+
+        -dontwarn cn.com.chinatelecom.**
+        -keep class cn.com.chinatelecom.** { *; }
+        -dontwarn com.ct.**
+        -keep class com.ct.** { *; }
+        -dontwarn a.a.**
+        -keep class a.a.** { *; }
+        -dontwarn com.cmic.**
+        -keep class com.cmic.** { *; }
+        -dontwarn com.unicom.**
+        -keep class com.unicom.** { *; }
+        -dontwarn com.sdk.**
+        -keep class com.sdk.** { *; }
+
+        -dontwarn com.sdk.**
+        -keep class com.sdk.** { *; }
+
+</code></pre>
 
 <h2 id="sdk">SDK接口说明</h2>
 <ul>
