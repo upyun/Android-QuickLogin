@@ -33,9 +33,7 @@
 	
 
 	<p>在应用 module Androidmanifest 中配置(aar 已配置 networkSecurityConfig ,应用中未修改可忽略)</p>
-<pre><code>application标签中添加
-android:networkSecurityConfig=&quot;@xml/network_security_config&quot;
-&lt;activity android:name=&quot;cn.jiguang.demo.jverification.MainActivity&quot; /&gt;
+<pre><code>android:networkSecurityConfig="@xml/network_security_config"
 </code></pre>
 
 	<p>在res目录下新建xml目录，并新建 network_security_config.xml(aar 已配置 network_security_config ,应用中未修改可忽略)</p>
