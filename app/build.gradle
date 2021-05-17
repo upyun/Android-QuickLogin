@@ -7,13 +7,13 @@ repositories {
 }
 
 android {
-    compileSdkVersion 28
+    compileSdkVersion 30
     signingConfigs {
     }
     defaultConfig {
         applicationId "com.upyun.verification"
         minSdkVersion 19
-        targetSdkVersion 26
+        targetSdkVersion 30
         versionCode 1
         versionName "1.0"
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
@@ -23,6 +23,9 @@ android {
                 //你的应用渠道
                 UPYUN_CHANNEL: "default_developer",
         ]
+//        ndk {
+//            abiFilters 'armeabi-v7a'
+//        }
     }
     buildTypes {
         release {
@@ -41,5 +44,5 @@ dependencies {
     androidTestImplementation 'androidx.test.ext:junit:1.1.1'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
     implementation 'androidx.appcompat:appcompat:1.1.0'
-    implementation(name: 'verification-release', ext: 'aar')
+    implementation(name: 'verification-2.0.1', ext: 'aar')
 }

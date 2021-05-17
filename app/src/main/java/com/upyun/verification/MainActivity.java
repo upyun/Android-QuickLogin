@@ -1,11 +1,14 @@
 package com.upyun.verification;
 
+import android.Manifest;
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.pm.PackageManager;
 import android.graphics.drawable.ColorDrawable;
+import android.os.Build;
 import android.os.Bundle;
 import android.util.Log;
 import android.util.TypedValue;
@@ -27,7 +30,6 @@ import com.upyun.verifysdk.api.PreLoginListener;
 import com.upyun.verifysdk.api.UpVerificationInterface;
 import com.upyun.verifysdk.api.UpVerifyUIClickCallback;
 import com.upyun.verifysdk.api.UpVerifyUiBuilder;
-import com.upyun.verification.R;
 import com.upyun.verifysdk.api.VerifyListener;
 
 public class MainActivity extends Activity implements View.OnClickListener {
@@ -50,6 +52,22 @@ public class MainActivity extends Activity implements View.OnClickListener {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         initView();
+        requestPermissions();
+    }
+
+    private void requestPermissions() {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+
+            String[] str = new String[2];
+            str[0] = Manifest.permission.WRITE_EXTERNAL_STORAGE;
+
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.R) {
+                str[1] = Manifest.permission.READ_PHONE_NUMBERS;
+            } else {
+                str[1] = Manifest.permission.READ_PHONE_STATE;
+            }
+            requestPermissions(str, 100);
+        }
     }
 
     private void initView() {
@@ -94,6 +112,19 @@ public class MainActivity extends Activity implements View.OnClickListener {
 
     @Override
     public void onClick(View v) {
+        int result;
+        if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.M) {
+            if (android.os.Build.VERSION.SDK_INT == android.os.Build.VERSION_CODES.R) {
+                result = checkSelfPermission(Manifest.permission.READ_PHONE_NUMBERS);
+            } else {
+                result = checkSelfPermission(Manifest.permission.READ_PHONE_STATE);
+            }
+            if (result != PackageManager.PERMISSION_GRANTED) {
+                Toast.makeText(this, "[2016],msg = 当前缺少权限", Toast.LENGTH_SHORT).show();
+                return;
+            }
+        }
+
         Log.d(TAG, "is init success = " + UpVerificationInterface.isInitSuccess());
         switch (v.getId()) {
             case R.id.btn_pre_login:
