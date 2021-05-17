@@ -189,14 +189,11 @@ public class MainActivity extends Activity implements View.OnClickListener {
                 bundle.putString(LOGIN_OPERATOR, operator);
                 savedLoginState = bundle;
                 //这里通过static bundle保存数据是为了防止出现授权页方向和MainActivity不相同时，MainActivity被销毁重新初始化导致回调数据无法展示到MainActivity
-                tvLog.post(new Runnable() {
+                runOnUiThread(new Runnable() {
                     @Override
                     public void run() {
                         tvLog.setText("[" + code + "]message=" + content + ", operator=" + operator);
-                        MainActivity.this.dismissLoadingDialog();
-                        if (code == 6000) {
-                            MainActivity.this.startActivity(new Intent(MainActivity.this, SucceedAvtivity.class));
-                        }
+                        dismissLoadingDialog();
                     }
                 });
             }
