@@ -19,7 +19,7 @@
 
 	</code></pre>
  - 在 dependencies 下加入
- 	<pre><code> implementation(name: 'verification-release', ext: 'aar')
+ 	<pre><code> implementation(name: 'verification-2.0.1', ext: 'aar')
 	</code></pre>
 	
  - 添加 manifest 变量
