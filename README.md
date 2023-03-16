@@ -1066,8 +1066,8 @@ RequestCallback<String><br />
 </tr>
 <tr>
 <td align="center">setPrivacyText</td>
-<td align="center">String,String,String,String</td>
-<td align="left">设置隐私条款名称外的文字。<br>如：登录即同意...和...、...并使用本机号码登录<br>参数1为："登录即同意"。<br>参数2为："和"。<br>参数3为："、"。<br>参数4为："并使用本机号码登录"。<br></td>
+<td align="center">String,String</td>
+<td align="left">设置隐私条款名称外的文字。如：登录即同意...... 并使用本机号码登录；参数 1 为："登录即同意"。参数 2 为："并使用本机号码登录"。<br></td>
 </tr>
 <tr>
 <td align="center">setPrivacyTextSize</td>

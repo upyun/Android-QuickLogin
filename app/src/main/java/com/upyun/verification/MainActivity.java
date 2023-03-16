@@ -112,18 +112,18 @@ public class MainActivity extends Activity implements View.OnClickListener {
 
     @Override
     public void onClick(View v) {
-        int result;
-        if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.M) {
-            if (android.os.Build.VERSION.SDK_INT == android.os.Build.VERSION_CODES.R) {
-                result = checkSelfPermission(Manifest.permission.READ_PHONE_NUMBERS);
-            } else {
-                result = checkSelfPermission(Manifest.permission.READ_PHONE_STATE);
-            }
-            if (result != PackageManager.PERMISSION_GRANTED) {
-                Toast.makeText(this, "[2016],msg = 当前缺少权限", Toast.LENGTH_SHORT).show();
-                return;
-            }
-        }
+//        int result;
+//        if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.M) {
+//            if (android.os.Build.VERSION.SDK_INT == android.os.Build.VERSION_CODES.R) {
+//                result = checkSelfPermission(Manifest.permission.READ_PHONE_NUMBERS);
+//            } else {
+//                result = checkSelfPermission(Manifest.permission.READ_PHONE_STATE);
+//            }
+//            if (result != PackageManager.PERMISSION_GRANTED) {
+//                Toast.makeText(this, "[2016],msg = 当前缺少权限", Toast.LENGTH_SHORT).show();
+//                return;
+//            }
+//        }
 
         Log.d(TAG, "is init success = " + UpVerificationInterface.isInitSuccess());
         switch (v.getId()) {
@@ -260,7 +260,7 @@ public class MainActivity extends Activity implements View.OnClickListener {
                     .setLogBtnTextSize(16)
                     .setAppPrivacyColor(0xff999999, 0xFF1A97FF)
                     .setPrivacyTextSize(12)
-                    .setPrivacyText("我已阅读并同意", "", "", "，并授权又拍获取本机号码")
+                    .setPrivacyText("我已阅读并同意", "并授权又拍获取本机号码")
                     .setUncheckedImgPath("ic_uncheck")
                     .setCheckedImgPath("ic_check")
                     .setPrivacyCheckboxSize(14)
@@ -321,7 +321,7 @@ public class MainActivity extends Activity implements View.OnClickListener {
                     .setLogBtnTextSize(16)
                     .setAppPrivacyColor(0xff999999, 0xFF1A97FF)
                     .setPrivacyTextSize(12)
-                    .setPrivacyText("我已阅读并同意", "", "", "，并授权又拍获取本机号码")
+                    .setPrivacyText("我已阅读并同意", "并授权又拍获取本机号码")
                     .setUncheckedImgPath("ic_uncheck")
                     .setCheckedImgPath("ic_check")
                     .setPrivacyCheckboxSize(14)
@@ -381,7 +381,7 @@ public class MainActivity extends Activity implements View.OnClickListener {
                     .setLogBtnImgPath("umcsdk_login_btn_bg")
                     .setAppPrivacyColor(0xff999999, 0xFF1A97FF)
                     .setPrivacyTextSize(12)
-                    .setPrivacyText("我已阅读并同意", "", "", "，并授权又拍获取本机号码")
+                    .setPrivacyText("我已阅读并同意", "，并授权又拍获取本机号码")
                     .setUncheckedImgPath("ic_uncheck")
                     .setCheckedImgPath("ic_check")
                     .setPrivacyCheckboxSize(14)
@@ -432,7 +432,7 @@ public class MainActivity extends Activity implements View.OnClickListener {
                     .setLogBtnImgPath("umcsdk_login_btn_bg")
                     .setAppPrivacyColor(0xff999999, 0xFF1A97FF)
                     .setPrivacyTextSize(12)
-                    .setPrivacyText("我已阅读并同意", "", "", "，并授权又拍获取本机号码")
+                    .setPrivacyText("我已阅读并同意", "并授权又拍获取本机号码")
                     .setUncheckedImgPath("ic_uncheck")
                     .setCheckedImgPath("ic_check")
                     .setPrivacyCheckboxSize(14)
